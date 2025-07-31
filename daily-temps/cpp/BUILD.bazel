@@ -1,0 +1,25 @@
+cc_library(
+    name = "daily_temperatures",
+    srcs = ["daily_temperatures.cpp"],
+    hdrs = ["daily_temperatures.h"],
+    visibility = ["//visibility:public"],
+)
+
+cc_test(
+    name = "daily_temperatures_test",
+    srcs = ["daily_temperatures_test.cpp"],
+    deps = [
+        ":daily_temperatures",
+        "@googletest//:gtest_main",
+    ],
+)
+
+cc_binary(
+    name = "daily_temperatures_benchmark",
+    srcs = ["daily_temperatures_benchmark.cpp"],
+    tags = ["benchmark"],
+    deps = [
+        ":daily_temperatures",
+        "@google_benchmark//:benchmark_main",
+    ],
+)

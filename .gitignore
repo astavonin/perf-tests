@@ -1,0 +1,68 @@
+# ---- Bazel ----
+bazel-*
+*.runfiles
+*.runfiles_manifest
+bazel-out/
+bazel-bin/
+bazel-testlogs/
+bazel-*/            # sometimes Bazel uses nested symlink dirs
+
+# Bazel lock file (optional to commit)
+MODULE.bazel.lock
+
+# Bazel crash dumps
+bazel-crash-*
+
+# Symlinks and metadata
+**/.bazelrc.user
+bazel-workspace-name
+
+# ---- macOS ----
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS metadata files in archives
+*.fseventsd
+*.Spotlight-V100
+*.Trashes
+*.AppleDouble
+*.AppleDB
+
+# ---- Go ----
+*.test
+*.exe
+*.out
+*.mod
+*.sum
+*.a
+
+# Go build artifacts (outside of Bazel)
+go.sum
+go.work
+go.work.sum
+
+# ---- C++ ----
+*.o
+*.a
+*.so
+*.dylib
+*.obj
+*.dll
+*.exe
+*.log
+*.gcno
+*.gcda
+*.gcov
+
+# ---- Editor / Tooling ----
+.vscode/
+.idea/
+.clangd/
+*.swp
+*.swo
+*.tmp
+
+# ---- Misc ----
+*.bak
+*.orig

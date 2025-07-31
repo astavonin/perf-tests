@@ -1,0 +1,16 @@
+load("@rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "daily_temperatures",
+    srcs = ["daily_temperatures.go"],
+    importpath = "perf-tests/daily-temps/go",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "daily_temperatures_test",
+    srcs = ["daily_temperatures_test.go"],
+    embed = [":daily_temperatures"],
+    importpath = "perf-tests/daily-temps/go",
+    tags = ["benchmark"],
+)

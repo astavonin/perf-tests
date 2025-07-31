@@ -1,0 +1,22 @@
+module(
+    name = "perf_tests",
+    version = "0.1.0",
+)
+
+# Bazel Go rules
+bazel_dep(name = "rules_go", version = "0.55.1")
+bazel_dep(name = "googletest", version = "1.14.0.bcr.1")
+bazel_dep(name = "google_benchmark", version = "1.9.2")
+
+# Declare Go SDK using rules_go extension
+go_sdk = use_extension("@rules_go//go:extensions.bzl", "go_sdk")
+go_sdk.download(version = "1.23.1")  # or use "host" if you want host-installed
+
+# Hedron's Compile Commands Extractor for Bazel
+# https://github.com/hedronvision/bazel-compile-commands-extractor
+bazel_dep(name = "hedron_compile_commands", dev_dependency = True)
+git_override(
+    module_name = "hedron_compile_commands",
+    commit = "4f28899228fb3ad0126897876f147ca15026151e",
+    remote = "https://github.com/hedronvision/bazel-compile-commands-extractor.git",
+)
